@@ -28,8 +28,8 @@ exports.getOneSauce = (req, res, next) => {
 };
 
 exports.modifySauce = (req, res, next) => {
-	const sauceObject = req.file ? 
-		{
+	const sauceObject = req.file
+		? {
 				...JSON.parse(req.body.sauce),
 				imageUrl: `${req.protocol}://${req.get("host")}/images/${req.file.filename}`,
 		  }
@@ -66,5 +66,32 @@ exports.getAllSauces = (req, res, next) => {
 };
 
 exports.likeSauces = (req, res, next) => {
-	console.log();
+	console.log(req.params.id);
+	Sauce.findOne({
+		_id: req.params.id,
+	})
+		.then((sauceRate) => {
+			if (req.body.like === 0) {
+				sauceRate.usersLiked.unset(req.body.userId);
+				console.log(sauceRate.usersLiked);
+			} else {
+				if (req.body.like === 1) {
+					sauceRate.usersLiked.push(req.body.userId);
+					const like = sauceRate.usersLiked.length;
+					sauceRate.like = like;
+					console.log(req.params.id);
+				} else {
+					sauceRate.usersDisliked.push(req.body.userId);
+					console.log(sauceRate);
+				}
+			}
+			Sauce.updateOne({ _id: req.params.id }, { sauceRate, _id: req.params.id })
+				.then(() => res.status(200).json({ message: "Objet modifié !" }))
+				.catch((error) => res.status(400).json({ error }));
+		})
+		.catch((error) => {
+			res.status(404).json({
+				error: error,
+			});
+		});
 };
