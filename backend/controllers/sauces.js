@@ -28,27 +28,15 @@ exports.getOneSauce = (req, res, next) => {
 };
 
 exports.modifySauce = (req, res, next) => {
-	const sauce = new Sauce({
-		_id: req.params.id,
-		userId: req.params.userId,
-		name: req.body.name,
-		manufacturer: req.body.manufacturer,
-		description: req.body.description,
-		imageUrl: req.body.imageUrl,
-		mainPepper: req.body.mainPepper,
-		heat: req.body.heatValue,
-	});
-	Sauce.updateOne({ _id: req.params.id }, sauce)
-		.then(() => {
-			res.status(201).json({
-				message: "La sauce à été modifiée avec succès !",
-			});
-		})
-		.catch((error) => {
-			res.status(400).json({
-				error: error,
-			});
-		});
+	const sauceObject = req.file ? 
+		{
+				...JSON.parse(req.body.sauce),
+				imageUrl: `${req.protocol}://${req.get("host")}/images/${req.file.filename}`,
+		  }
+		: { ...req.body };
+	Sauce.updateOne({ _id: req.params.id }, { ...sauceObject, _id: req.params.id })
+		.then(() => res.status(200).json({ message: "Objet modifié !" }))
+		.catch((error) => res.status(400).json({ error }));
 };
 
 exports.deleteSauce = (req, res, next) => {
@@ -77,39 +65,6 @@ exports.getAllSauces = (req, res, next) => {
 		});
 };
 
-// exports.likeSauces = (req, res, next) => {
-// 	if (req.body.like === 1) {
-// 		const sauce = new Sauce({
-// 			_id: req.params.id,
-// 			like: req.params.like + 1,
-// 			usersLiked: req.params.userId,
-// 		});
-// 		Sauce.updateOne({ _id: req.params.id }, sauce)
-// 			.then(() => {
-// 				res.status(201).json({
-// 					message: "La sauce à été liké !",
-// 				});
-// 			})
-// 			.catch((error) => {
-// 				res.status(400).json({
-// 					error: error,
-// 				});
-// 			});
-// 	}
-// 	const sauce = new Sauce({
-// 		_id: req.params.id,
-// 		dislike: req.params.dislike + 1,
-// 		usersDisliked: req.params.userId,
-// 	});
-// 	Sauce.updateOne({ _id: req.params.id }, sauce)
-// 		.then(() => {
-// 			res.status(201).json({
-// 				message: "La sauce à été disliké !",
-// 			});
-// 		})
-// 		.catch((error) => {
-// 			res.status(400).json({
-// 				error: error,
-// 			});
-// 		});
-// };
+exports.likeSauces = (req, res, next) => {
+	console.log();
+};
