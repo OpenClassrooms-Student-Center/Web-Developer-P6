@@ -68,28 +68,36 @@ exports.getAllSauces = (req, res, next) => {
 exports.likeSauces = (req, res, next) => {
 	Sauce.findOne({
 		_id: req.params.id,
-	}).then((sauce) => {
-		if (req.body.like === 0) {
-			sauce.usersLiked.splice(req.body.userId);
-			sauce.usersDisliked.splice(req.body.userId);			
-		} else {
-			if (req.body.like === 1) {
-				sauce.usersLiked.push(req.body.userId);
+	})
+		.then((sauce) => {
+			if (req.body.like === 0) {
+				sauce.usersLiked.splice(req.body.userId);
+				sauce.usersDisliked.splice(req.body.userId);
 			} else {
-				sauce.usersDisliked.push(req.body.userId);
+				const usersRated = sauce.usersLiked.concat(sauce.usersdisLiked);
+				usersRated.forEach((el) => {
+					if (req.body.userId === el) {
+						throw "403: User already Rate";
+					} else {
+						if (req.body.like === 1) {
+							sauce.usersLiked.push(req.body.userId);
+						} else {
+							sauce.usersDisliked.push(req.body.userId);
+						}
+					}
+				});
 			}
-		}
-		const like = sauce.usersLiked.length;
-		const dislike = sauce.usersDisliked.length;
-		sauce.likes = like;
-		sauce.dislikes = dislike;
-		Sauce.updateOne({ _id: req.params.id }, sauce)
-			.then(() => res.status(200).json({ message: "Objet modifié !" }))
-			.catch((error) => res.status(400).json({ error }));
-	});
-	// .catch((error) => {
-	// 	res.status(404).json({
-	// 		error: error,
-	// 	});
-	// });
+			const like = sauce.usersLiked.length;
+			const dislike = sauce.usersDisliked.length;
+			sauce.likes = like;
+			sauce.dislikes = dislike;
+			Sauce.updateOne({ _id: req.params.id }, sauce)
+				.then(() => res.status(200).json({ message: "Rated !" }))
+				.catch((error) => res.status(400).json({ error }));
+		})
+		.catch((error) => {
+			res.status(404).json({
+				error: error,
+			});
+		});
 };
