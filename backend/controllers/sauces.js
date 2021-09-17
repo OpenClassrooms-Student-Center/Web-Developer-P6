@@ -66,32 +66,30 @@ exports.getAllSauces = (req, res, next) => {
 };
 
 exports.likeSauces = (req, res, next) => {
-	console.log(req.params.id);
 	Sauce.findOne({
 		_id: req.params.id,
-	})
-		.then((sauceRate) => {
-			if (req.body.like === 0) {
-				sauceRate.usersLiked.unset(req.body.userId);
-				console.log(sauceRate.usersLiked);
+	}).then((sauce) => {
+		if (req.body.like === 0) {
+			sauce.usersLiked.splice(req.body.userId);
+			sauce.usersDisliked.splice(req.body.userId);			
+		} else {
+			if (req.body.like === 1) {
+				sauce.usersLiked.push(req.body.userId);
 			} else {
-				if (req.body.like === 1) {
-					sauceRate.usersLiked.push(req.body.userId);
-					const like = sauceRate.usersLiked.length;
-					sauceRate.like = like;
-					console.log(req.params.id);
-				} else {
-					sauceRate.usersDisliked.push(req.body.userId);
-					console.log(sauceRate);
-				}
+				sauce.usersDisliked.push(req.body.userId);
 			}
-			Sauce.updateOne({ _id: req.params.id }, { sauceRate, _id: req.params.id })
-				.then(() => res.status(200).json({ message: "Objet modifié !" }))
-				.catch((error) => res.status(400).json({ error }));
-		})
-		.catch((error) => {
-			res.status(404).json({
-				error: error,
-			});
-		});
+		}
+		const like = sauce.usersLiked.length;
+		const dislike = sauce.usersDisliked.length;
+		sauce.likes = like;
+		sauce.dislikes = dislike;
+		Sauce.updateOne({ _id: req.params.id }, sauce)
+			.then(() => res.status(200).json({ message: "Objet modifié !" }))
+			.catch((error) => res.status(400).json({ error }));
+	});
+	// .catch((error) => {
+	// 	res.status(404).json({
+	// 		error: error,
+	// 	});
+	// });
 };
