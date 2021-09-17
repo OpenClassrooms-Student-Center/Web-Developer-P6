@@ -17,6 +17,9 @@ Content-Type: application/json
 GET http://localhost:3000/api/sauces
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTQ0YjgxMGZiNDVhM2FlZTI2ZjE5NmQiLCJpYXQiOjE2MzE4OTM1NTcsImV4cCI6MTYzMTk3OTk1N30.Z_k3Q2na57PRDY8cAeEAu31HOiUceQC7657z9ao6WJE
 ###
+DELETE http://localhost:3000/api/sauces/6144b6291d0cc0f924aa15af
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTQ0YjgxMGZiNDVhM2FlZTI2ZjE5NmQiLCJpYXQiOjE2MzE4OTM1NTcsImV4cCI6MTYzMTk3OTk1N30.Z_k3Q2na57PRDY8cAeEAu31HOiUceQC7657z9ao6WJE
+###
 POST http://localhost:3000/api/sauces/6144b6291d0cc0f924aa15af/like
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTQ0YjgxMGZiNDVhM2FlZTI2ZjE5NmQiLCJpYXQiOjE2MzE4OTM1NTcsImV4cCI6MTYzMTk3OTk1N30.Z_k3Q2na57PRDY8cAeEAu31HOiUceQC7657z9ao6WJE
 Content-Type: application/json
@@ -26,11 +29,11 @@ Content-Type: application/json
     "userId" : "6144b810fb45a3aee26f196d"
 }
 ###
-PUT http://localhost:3000/api/sauces/614501db635c6b9e0e990b7d
+PUT http://localhost:3000/api/sauces/6144b6291d0cc0f924aa15af
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTQ0YjgxMGZiNDVhM2FlZTI2ZjE5NmQiLCJpYXQiOjE2MzE4OTM1NTcsImV4cCI6MTYzMTk3OTk1N30.Z_k3Q2na57PRDY8cAeEAu31HOiUceQC7657z9ao6WJE
 Content-Type: application/json
 
 {
     "likes" : 1,
-    "name" : "hackedAgain"
+    "name" : "hacked"
 }
