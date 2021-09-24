@@ -4,6 +4,14 @@ var validator = require("email-validator");
 const User = require("../models/User");
 
 exports.signup = (req, res, next) => {
+	let passwordValidator = new RegExp("(?=.*[a-z])(?=.*[0-9])(?=.{8,})");
+	if (validator.validate(req.body.email) === false) {
+		return res.status(401).json({ message: "Veuillez saisir un email valide !" });
+	}
+	console.log(req.body.password);
+	if (passwordValidator.test(req.body.password) === false) {
+		return res.status(401).json({ message: "Veuillez saisir un mot de passe plus complexe avec 8 caractères et un chiffre minimum" });
+	}
 	bcrypt
 		.hash(req.body.password, 10)
 		.then((hash) => {
@@ -11,9 +19,6 @@ exports.signup = (req, res, next) => {
 				email: req.body.email,
 				password: hash,
 			});
-			if (validator.validate(user.email) === false) {
-				return res.status(401).json({ error: "Veuillez saisir un email valide !" });			
-			}
 			user.save()
 				.then(() => res.status(201).json({ message: "Utilisateur créé !" }))
 				.catch((error) => res.status(400).json({ error }));
@@ -35,7 +40,7 @@ exports.login = (req, res, next) => {
 					}
 					res.status(200).json({
 						userId: user._id,
-						token: jwt.sign({ userId: user._id }, "RANDOM_TOKEN_SECRET", { expiresIn: "24h" }), 
+						token: jwt.sign({ userId: user._id }, "RANDOM_TOKEN_SECRET", { expiresIn: "24h" }),
 					});
 				})
 				.catch((error) => res.status(500).json({ error }));
