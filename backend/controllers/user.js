@@ -1,5 +1,6 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+var validator = require("email-validator");
 const User = require("../models/User");
 
 exports.signup = (req, res, next) => {
@@ -10,6 +11,9 @@ exports.signup = (req, res, next) => {
 				email: req.body.email,
 				password: hash,
 			});
+			if (validator.validate(user.email) === false) {
+				return res.status(401).json({ error: "Veuillez saisir un email valide !" });			
+			}
 			user.save()
 				.then(() => res.status(201).json({ message: "Utilisateur créé !" }))
 				.catch((error) => res.status(400).json({ error }));
