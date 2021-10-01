@@ -3,6 +3,9 @@ const jwt = require("jsonwebtoken");
 var validator = require("email-validator");
 const User = require("../models/User");
 
+require('dotenv').config()
+const tokenSecret = process.env.TOKEN_SECRET;
+
 exports.signup = (req, res, next) => {
 	let passwordValidator = new RegExp("(?=.*[a-z])(?=.*[0-9])(?=.{8,})");
 	if (validator.validate(req.body.email) === false) {
@@ -40,7 +43,7 @@ exports.login = (req, res, next) => {
 					}
 					res.status(200).json({
 						userId: user._id,
-						token: jwt.sign({ userId: user._id }, "RANDOM_TOKEN_SECRET", { expiresIn: "24h" }),
+						token: jwt.sign({ userId: user._id }, `"${tokenSecret}"`, { expiresIn: "24h" }),
 					});
 				})
 				.catch((error) => res.status(500).json({ error }));
