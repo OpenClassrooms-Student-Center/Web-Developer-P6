@@ -11,7 +11,6 @@ exports.signup = (req, res, next) => {
 	if (validator.validate(req.body.email) === false) {
 		return res.status(401).json({ message: "Veuillez saisir un email valide !" });
 	}
-	console.log(req.body.password);
 	if (passwordValidator.test(req.body.password) === false) {
 		return res.status(401).json({ message: "Veuillez saisir un mot de passe plus complexe avec 8 caractères et un chiffre minimum" });
 	}

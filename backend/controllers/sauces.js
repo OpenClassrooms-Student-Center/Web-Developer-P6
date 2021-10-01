@@ -87,7 +87,6 @@ exports.likeSauces = (req, res, next) => {
 		.then((sauce) => {
 			if (req.body.like === 0) {
 				const index = sauce.usersLiked.indexOf(req.body.userId);
-				console.log(index);
 				if (index >= 0) {
 					sauce.usersLiked.splice(index, 1);
 				}
