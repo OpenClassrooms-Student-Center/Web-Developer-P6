@@ -42,7 +42,7 @@ exports.login = (req, res, next) => {
 					}
 					res.status(200).json({
 						userId: user._id,
-						token: jwt.sign({ userId: user._id }, `"${tokenSecret}"`, { expiresIn: "24h" }),
+						token: jwt.sign({ userId: user._id },tokenSecret, { expiresIn: "24h" }),
 					});
 				})
 				.catch((error) => res.status(500).json({ error }));

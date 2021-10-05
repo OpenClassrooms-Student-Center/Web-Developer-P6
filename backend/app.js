@@ -10,9 +10,10 @@ require('dotenv').config()
 const dbPassword = process.env.DB_PASSWORD;
 const dbUser = process.env.DB_USER;
 const dbDatabase = process.env.DB_DATABASE;
+const dbCluster = process.env.DB_CLUSTER;
 
 mongoose
-	.connect(`mongodb+srv://${dbUser}:${dbPassword}@cluster0.x0elc.mongodb.net/${dbDatabase}?retryWrites=true&w=majority`, { useNewUrlParser: true, useUnifiedTopology: true })
+	.connect(`mongodb+srv://${dbUser}:${dbPassword}@${dbCluster}.mongodb.net/${dbDatabase}?retryWrites=true&w=majority`, { useNewUrlParser: true, useUnifiedTopology: true })
 	.then(() => console.log("Connexion à MongoDB réussie !"))
 	.catch(() => console.log("Connexion à MongoDB échouée !"));
 
