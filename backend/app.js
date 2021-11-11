@@ -1,17 +1,22 @@
 const express = require('express');
-const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const path = require('path');
 
-app.use(bodyParser.json());
+const userRoutes = require('./routes/user'); // add user route
+const sauceRoutes = require('./routes/sauces'); //add sauce route
 
-mongoose.connect('mongodb+srv://JoePibs:TrNd19mJb9O6eMPD@hottakes.7pldc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+// Connect to mongodb
+mongoose.connect('mongodb+srv://JoePibs:Liberte64$@hottakesproject.7pldc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
   { useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie !'))
   .catch(() => console.log('Connexion à MongoDB échouée !'));
 
+const app = express();
+app.use(bodyParser.json());
 
+// open call http from all server
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
@@ -19,24 +24,8 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use((req, res, next) => {
-  console.log('Requête reçue !');
-  next();
-});
-
-app.use((req, res, next) => {
-  res.status(201);
-  next();
-});
-
-app.use((req, res, next) => {
-  res.json({ message: 'Votre requête a bien été reçue !' });
-  next();
-});
-
-app.use((req, res, next) => {
-  console.log('Réponse envoyée avec succès !');
-});
-
+app.use('/images', express.static(path.join(__dirname, 'images'))); 
+app.use('/api/sauces', sauceRoutes);
+app.use('/api/auth', userRoutes);
+ 
 module.exports = app;
-
