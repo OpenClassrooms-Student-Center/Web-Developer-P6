@@ -1,4 +1,5 @@
 const express = require('express');
+require('dotenv').config;
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path');
@@ -8,9 +9,9 @@ const userRoutes = require('./routes/user'); // add user route
 const sauceRoutes = require('./routes/sauces'); //add sauce route
 
 // Connect to mongodb
-mongoose.connect('mongodb+srv://JoePibs:TrNd19mJb9O6eMPD@hottakes.7pldc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
-  { useNewUrlParser: true,
-    useUnifiedTopology: true })
+mongoose.connect(`${process.env.MONGO_DSN}`,{
+  useNewUrlParser: true,  //deprecation warnings = avertissement fonctionnalité,biblio existante va être modifiée,supprimée,remplacée//
+  useUnifiedTopology: true,})
   .then(() => console.log('Connexion à MongoDB réussie !'))
   .catch(() => console.log('Connexion à MongoDB échouée !'));
 
