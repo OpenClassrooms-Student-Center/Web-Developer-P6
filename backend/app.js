@@ -3,11 +3,12 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path');
 
+
 const userRoutes = require('./routes/user'); // add user route
 const sauceRoutes = require('./routes/sauces'); //add sauce route
 
 // Connect to mongodb
-mongoose.connect('mongodb+srv://JoePibs:Liberte64$@hottakesproject.7pldc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+mongoose.connect('mongodb+srv://JoePibs:TrNd19mJb9O6eMPD@hottakes.7pldc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
   { useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie !'))

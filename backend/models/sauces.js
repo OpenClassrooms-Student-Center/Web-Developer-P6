@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+require('dotenv').config;
 
 const saucesSchema = mongoose.Schema({
     userId:{ type: String ,required: true},
