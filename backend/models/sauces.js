@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
-require('dotenv').config;
+const mongoose = require('mongoose'); //upload mongoose
 
+//Define mongoose schema based on requirements of project
 const saucesSchema = mongoose.Schema({
     userId:{ type: String ,required: true},
     name: {type: String, require: true},
@@ -15,4 +15,4 @@ const saucesSchema = mongoose.Schema({
     usersDisliked: {type: Array, required: false },
 })
 
-module.exports = mongoose.model('sauces', saucesSchema);
+module.exports = mongoose.model('sauces', saucesSchema); //export modl to interaction with app
