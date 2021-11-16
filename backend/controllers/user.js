@@ -16,7 +16,6 @@ exports.signup = (req, res, next) => { //midleware to create a new user
       .catch(error => res.status(500).json({ error }));
   };
 
-
 exports.login = (req, res, next) => { //Middleware to connect an existing user
     User.findOne({ email: req.body.email }) //search users in DB
       .then(user => {
@@ -33,7 +32,7 @@ exports.login = (req, res, next) => { //Middleware to connect an existing user
               token: jwt.sign(
                 { userId: user._id },
                 'RANDOM_TOKEN_SECRET', //Token encryption key that can be made more complex in production
-                { expiresIn: '4h' } //configuration of expiration date 
+                { expiresIn: '72h' } //configuration of expiration date 
               )
             });
           })
