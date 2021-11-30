@@ -1,8 +1,10 @@
+// Import packages
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
 
-const stuffRoutes = require("./routes/stuff");
+// Import routes
+const sauceRoutes = require("./routes/sauce");
 const userRoutes = require("./routes/user");
 
 const app = express();
@@ -10,7 +12,7 @@ const app = express();
 mongoose
   .connect("mongodb+srv://yinkyflash:uKRv6PJvX6SFfSs@cluster0.cfqd1.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log("Successfully connected to MongoDB ! ✅ 🍀"))
-  .catch(() => console.log("MMMMM, Connection to MongoDB failed ! ❌ 🍀"));
+  .catch(() => console.log("Oh Nooo ! Connection to MongoDB failed ! ❌ 🍀"));
 
 app.use(express.json());
 
@@ -23,7 +25,7 @@ app.use((req, res, next) => {
 
 app.use("/images", express.static(path.join(__dirname, "images")));
 
-app.use("/api/stuff", stuffRoutes);
+app.use("/api/sauces", sauceRoutes);
 app.use("/api/auth", userRoutes);
 
 module.exports = app;
