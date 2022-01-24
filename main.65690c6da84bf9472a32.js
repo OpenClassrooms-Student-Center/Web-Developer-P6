@@ -22669,7 +22669,7 @@
                     t.auth
                       .loginUser(e, n)
                       .then(function () {
-                        ;(t.loading = !1), t.router.navigate(["/glosses"])
+                        ;(t.loading = !1), t.router.navigate(["/sautes"])
                       })
                       .catch(function (e) {
                         ;(t.loading = !1), console.error(e), (t.errorMsg = e.error.message)
@@ -23105,7 +23105,7 @@
               this.auth
                 .loginUser(e, n)
                 .then(function () {
-                  ;(t.loading = !1), t.router.navigate(["/glosses"])
+                  ;(t.loading = !1), t.router.navigate(["/sautes"])
                 })
                 .catch(function (e) {
                   ;(t.loading = !1), (t.errorMsg = e.message)
@@ -23522,14 +23522,14 @@
           function t(t, e) {
             ;(this.http = t),
               (this.auth = e),
-              (this.glosses$ = new T()),
-              (this.tempGlosses = [
+              (this.sautes$ = new T()),
+              (this.tempsautes = [
                 {
                   _id: "eizomfhazo",
                   name: "The Last Dab",
                   manufacturer: "Heatonist",
                   description:
-                    'CAUTION! The Last Dab—the hottest gloss on Hot Ones, known for turning guests and fans alike into stuttering, fire-breathing lunatics—just got even crazier. The Last Dab first took the world by storm as the only gloss made with Smokin\' Ed Currie\'s infamous "Pepper X." This XX-rated edition gets its one-two punch of heat from addition of the equally lethal "Chocolate Pepper X." All you need is a dab to light the inferno and experience the Hot Ones tradition.',
+                    'CAUTION! The Last Dab—the hottest saute on Hot Ones, known for turning guests and fans alike into stuttering, fire-breathing lunatics—just got even crazier. The Last Dab first took the world by storm as the only saute made with Smokin\' Ed Currie\'s infamous "Pepper X." This XX-rated edition gets its one-two punch of heat from addition of the equally lethal "Chocolate Pepper X." All you need is a dab to light the inferno and experience the Hot Ones tradition.',
                   heat: 10,
                   likes: 100,
                   dislikes: 0,
@@ -23544,7 +23544,7 @@
                   name: "Los Calientes",
                   manufacturer: "Heatonist",
                   description:
-                    "Hot Ones is the show where celebrities divulge their deepest secrets while eating progressively hotter wings. The middle of the lineup is where hot gloss magic happens—the perfect sweet spot between maximum flavor and pleasing heat. Inspired by our favorite Cali-Mex flavors, Los Calientes surfs over the palate with a punchy, smoky blend...",
+                    "Hot Ones is the show where celebrities divulge their deepest secrets while eating progressively hotter wings. The middle of the lineup is where hot saute magic happens—the perfect sweet spot between maximum flavor and pleasing heat. Inspired by our favorite Cali-Mex flavors, Los Calientes surfs over the palate with a punchy, smoky blend...",
                   heat: 5,
                   likes: 100,
                   dislikes: 0,
@@ -23559,12 +23559,12 @@
                   name: "Black Garlic",
                   manufacturer: "Bravado Spice Company",
                   description:
-                    "Team Bravado is back at it with an elevated offering where Carolina Reaper meets aged black garlic. The sweetness of the slowly cooked garlic tempers the initial bitter burn of the Reaper, but not for long... This is a biting hot gloss you'll want in marinades, glosses, dressings, and on those garlic wings! ",
+                    "Team Bravado is back at it with an elevated offering where Carolina Reaper meets aged black garlic. The sweetness of the slowly cooked garlic tempers the initial bitter burn of the Reaper, but not for long... This is a biting hot saute you'll want in marinades, sautes, dressings, and on those garlic wings! ",
                   heat: 6,
                   likes: 100,
                   dislikes: 0,
                   imageUrl:
-                    "https://cdn.shopify.com/s/files/1/2086/9287/products/bravado-blackgarlichotgloss_1024x1024.jpg?v=1527270029",
+                    "https://cdn.shopify.com/s/files/1/2086/9287/products/bravado-blackgarlichotsaute_1024x1024.jpg?v=1527270029",
                   mainPepper: "Carolina Reaper",
                   usersLiked: [],
                   usersDisliked: []
@@ -23574,7 +23574,7 @@
                   name: "Smoked Onion",
                   manufacturer: "Butterfly Bakery",
                   description:
-                    "The makers at Butterfly Bakery smoke Vermont onions with maplewood to mix with red jalapeños for this sweet and tangy gloss. Great on everything from bagels lox & cream cheese to hummus to pork and whatever else you can name. The medium heat level makes it the perfect smoky gloss for anyone!",
+                    "The makers at Butterfly Bakery smoke Vermont onions with maplewood to mix with red jalapeños for this sweet and tangy saute. Great on everything from bagels lox & cream cheese to hummus to pork and whatever else you can name. The medium heat level makes it the perfect smoky saute for anyone!",
                   heat: 3,
                   likes: 100,
                   dislikes: 0,
@@ -23586,15 +23586,15 @@
                 },
                 {
                   _id: "eroimfgjlfh",
-                  name: "Blair's Ultra Death Gloss",
+                  name: "Blair's Ultra Death saute",
                   manufacturer: "Blair's",
                   description:
-                    "Blair's Ultra Death has established itself as a bit of a legend within the hot gloss world.\n\nIf there's one thing that creator Blair Lazar does well it's retaining the flavour in his super-hot glosses. They'll melt your face off for sure, but despite the extract they still taste damned fine.\n\nJust to emphasise the seriousness of the heat we're dealing with here, all Blair's super-hot glosses in the Death range now come in a nifty coffin box with his trademark skull keyring attached to the bottle.",
+                    "Blair's Ultra Death has established itself as a bit of a legend within the hot saute world.\n\nIf there's one thing that creator Blair Lazar does well it's retaining the flavour in his super-hot sautes. They'll melt your face off for sure, but despite the extract they still taste damned fine.\n\nJust to emphasise the seriousness of the heat we're dealing with here, all Blair's super-hot sautes in the Death range now come in a nifty coffin box with his trademark skull keyring attached to the bottle.",
                   heat: 9,
                   likes: 100,
                   dislikes: 0,
                   imageUrl:
-                    "https://www.chilliworld.com/content/images/thumbs/0000827_blairs-ultra-death-gloss-in-a-coffin_550.jpeg",
+                    "https://www.chilliworld.com/content/images/thumbs/0000827_blairs-ultra-death-saute-in-a-coffin_550.jpeg",
                   mainPepper: "Carolina Reaper",
                   usersLiked: [],
                   usersDisliked: []
@@ -23602,21 +23602,21 @@
               ])
           }
           return (
-            (t.prototype.getGlosses = function () {
+            (t.prototype.getsautes = function () {
               var t = this
-              this.http.get("http://localhost:3000/api/glosses").subscribe(
+              this.http.get("http://localhost:3000/api/sautes").subscribe(
                 function (e) {
-                  t.glosses$.next(e)
+                  t.sautes$.next(e)
                 },
                 function (e) {
-                  t.glosses$.next([]), console.error(e.error.message)
+                  t.sautes$.next([]), console.error(e.error.message)
                 }
               )
             }),
-            (t.prototype.getGlossById = function (t) {
+            (t.prototype.getsauteById = function (t) {
               var e = this
               return new Promise(function (n, r) {
-                e.http.get("http://localhost:3000/api/glosses/" + t).subscribe(
+                e.http.get("http://localhost:3000/api/sautes/" + t).subscribe(
                   function (t) {
                     n(t)
                   },
@@ -23626,11 +23626,11 @@
                 )
               })
             }),
-            (t.prototype.likeGloss = function (t, e) {
+            (t.prototype.likesaute = function (t, e) {
               var n = this
               return new Promise(function (r, o) {
                 n.http
-                  .post("http://localhost:3000/api/glosses/" + t + "/like", {
+                  .post("http://localhost:3000/api/sautes/" + t + "/like", {
                     userId: n.auth.getUserId(),
                     like: e ? 1 : 0
                   })
@@ -23644,11 +23644,11 @@
                   )
               })
             }),
-            (t.prototype.dislikeGloss = function (t, e) {
+            (t.prototype.dislikesaute = function (t, e) {
               var n = this
               return new Promise(function (r, o) {
                 n.http
-                  .post("http://localhost:3000/api/glosses/" + t + "/like", {
+                  .post("http://localhost:3000/api/sautes/" + t + "/like", {
                     userId: n.auth.getUserId(),
                     like: e ? -1 : 0
                   })
@@ -23662,13 +23662,13 @@
                   )
               })
             }),
-            (t.prototype.createGloss = function (t, e) {
+            (t.prototype.createsaute = function (t, e) {
               var n = this
               return new Promise(function (r, o) {
                 var i = new FormData()
-                i.append("gloss", JSON.stringify(t)),
+                i.append("saute", JSON.stringify(t)),
                   i.append("image", e),
-                  n.http.post("http://localhost:3000/api/glosses", i).subscribe(
+                  n.http.post("http://localhost:3000/api/sautes", i).subscribe(
                     function (t) {
                       r(t)
                     },
@@ -23678,11 +23678,11 @@
                   )
               })
             }),
-            (t.prototype.modifyGloss = function (t, e, n) {
+            (t.prototype.modifysaute = function (t, e, n) {
               var r = this
               return new Promise(function (o, i) {
                 if ("string" == typeof n)
-                  r.http.put("http://localhost:3000/api/glosses/" + t, e).subscribe(
+                  r.http.put("http://localhost:3000/api/sautes/" + t, e).subscribe(
                     function (t) {
                       return o(t)
                     },
@@ -23692,9 +23692,9 @@
                   )
                 else {
                   var a = new FormData()
-                  a.append("gloss", JSON.stringify(e)),
+                  a.append("saute", JSON.stringify(e)),
                     a.append("image", n),
-                    r.http.put("http://localhost:3000/api/glosses/" + t, a).subscribe(
+                    r.http.put("http://localhost:3000/api/sautes/" + t, a).subscribe(
                       function (t) {
                         return o(t)
                       },
@@ -23705,10 +23705,10 @@
                 }
               })
             }),
-            (t.prototype.deleteGloss = function (t) {
+            (t.prototype.deletesaute = function (t) {
               var e = this
               return new Promise(function (n, r) {
-                e.http.delete("http://localhost:3000/api/glosses/" + t).subscribe(
+                e.http.delete("http://localhost:3000/api/sautes/" + t).subscribe(
                   function (t) {
                     n(t)
                   },
@@ -23730,24 +23730,24 @@
         })(),
         ov = (function () {
           function t(t, e) {
-            ;(this.gloss = t), (this.router = e)
+            ;(this.saute = t), (this.router = e)
           }
           return (
             (t.prototype.ngOnInit = function () {
               var t = this
               ;(this.loading = !0),
-                (this.glossSub = this.gloss.glosses$.subscribe(
+                (this.sauteSub = this.saute.sautes$.subscribe(
                   function (e) {
-                    ;(t.glosses = e), (t.loading = !1), (t.errorMsg = null)
+                    ;(t.sautes = e), (t.loading = !1), (t.errorMsg = null)
                   },
                   function (e) {
                     ;(t.errorMsg = JSON.stringify(e)), (t.loading = !1)
                   }
                 )),
-                this.gloss.getGlosses()
+                this.saute.getsautes()
             }),
-            (t.prototype.onClickGloss = function (t) {
-              this.router.navigate(["gloss", t])
+            (t.prototype.onClicksaute = function (t) {
+              this.router.navigate(["saute", t])
             }),
             t
           )
@@ -23756,7 +23756,7 @@
           encapsulation: 0,
           styles: [
             [
-              ".gloss-list[_ngcontent-%COMP%]{display:flex;justify-content:space-around;flex-wrap:wrap}.gloss-list-item[_ngcontent-%COMP%]{text-align:center;width:220px;transition:all .1s ease-in-out;cursor:pointer}.gloss-list-item[_ngcontent-%COMP%]   img[_ngcontent-%COMP%]{max-width:200px;max-height:250px}.gloss-list-item[_ngcontent-%COMP%]   h4[_ngcontent-%COMP%]{margin:0;font-weight:500}.gloss-list-item[_ngcontent-%COMP%]   p[_ngcontent-%COMP%]{margin:0}.gloss-list-item[_ngcontent-%COMP%]:hover{transform:scale(1.05);box-shadow:1px 1px 20px rgba(120,120,120,.3)}.list-title[_ngcontent-%COMP%]{text-align:center;margin:2em auto}"
+              ".saute-list[_ngcontent-%COMP%]{display:flex;justify-content:space-around;flex-wrap:wrap}.saute-list-item[_ngcontent-%COMP%]{text-align:center;width:220px;transition:all .1s ease-in-out;cursor:pointer}.saute-list-item[_ngcontent-%COMP%]   img[_ngcontent-%COMP%]{max-width:200px;max-height:250px}.saute-list-item[_ngcontent-%COMP%]   h4[_ngcontent-%COMP%]{margin:0;font-weight:500}.saute-list-item[_ngcontent-%COMP%]   p[_ngcontent-%COMP%]{margin:0}.saute-list-item[_ngcontent-%COMP%]:hover{transform:scale(1.05);box-shadow:1px 1px 20px rgba(120,120,120,.3)}.list-title[_ngcontent-%COMP%]{text-align:center;margin:2em auto}"
             ]
           ],
           data: {}
@@ -23803,7 +23803,7 @@
           0,
           [
             (t()(), Li(0, 0, null, null, 1, "p", [], null, null, null, null, null)),
-            (t()(), Ji(-1, null, [" No glosses to display!\n"]))
+            (t()(), Ji(-1, null, [" No sautes to display!\n"]))
           ],
           null,
           null
@@ -23815,7 +23815,7 @@
           [
             (t()(),
             Li(0, 0, null, null, 1, "p", [["class", "list-title"]], null, null, null, null, null)),
-            (t()(), Ji(-1, null, ["THE GLOSSES"]))
+            (t()(), Ji(-1, null, ["THE sautes"]))
           ],
           null,
           null
@@ -23833,14 +23833,14 @@
               null,
               6,
               "div",
-              [["class", "gloss-list-item"]],
+              [["class", "saute-list-item"]],
               null,
               [[null, "click"]],
               function (t, e, n) {
                 var r = !0
                 return (
                   "click" === e &&
-                    (r = !1 !== t.component.onClickGloss(t.context.$implicit._id) && r),
+                    (r = !1 !== t.component.onClicksaute(t.context.$implicit._id) && r),
                   r
                 )
               },
@@ -23882,7 +23882,7 @@
               null,
               2,
               "div",
-              [["class", "gloss-list"]],
+              [["class", "saute-list"]],
               null,
               null,
               null,
@@ -23893,7 +23893,7 @@
             no(2, 278528, null, 0, Os, [An, On, En], { ngForOf: [0, "ngForOf"] }, null)
           ],
           function (t, e) {
-            t(e, 2, 0, e.component.glosses)
+            t(e, 2, 0, e.component.sautes)
           },
           null
         )
@@ -23915,9 +23915,9 @@
           function (t, e) {
             var n = e.component
             t(e, 2, 0, n.loading),
-              t(e, 4, 0, !n.loading && n.glosses.length <= 0),
-              t(e, 6, 0, !n.loading && n.glosses.length > 0),
-              t(e, 8, 0, !n.loading && n.glosses.length > 0)
+              t(e, 4, 0, !n.loading && n.sautes.length <= 0),
+              t(e, 6, 0, !n.loading && n.sautes.length > 0),
+              t(e, 8, 0, !n.loading && n.sautes.length > 0)
           },
           null
         )
@@ -23927,7 +23927,7 @@
         return ea(
           0,
           [
-            (t()(), Li(0, 0, null, null, 1, "app-gloss-list", [], null, null, null, hv, iv)),
+            (t()(), Li(0, 0, null, null, 1, "app-saute-list", [], null, null, null, hv, iv)),
             no(1, 114688, null, 0, ov, [rv, cp], null, null)
           ],
           function (t, e) {
@@ -23936,10 +23936,10 @@
           null
         )
       }
-      var fv = Nr("app-gloss-list", ov, pv, {}, {}, []),
+      var fv = Nr("app-saute-list", ov, pv, {}, {}, []),
         dv = (function () {
           function t(t, e, n, r) {
-            ;(this.glosses = t), (this.route = e), (this.auth = n), (this.router = r)
+            ;(this.sautes = t), (this.route = e), (this.auth = n), (this.router = r)
           }
           return (
             (t.prototype.ngOnInit = function () {
@@ -23947,8 +23947,8 @@
               ;(this.userId = this.auth.getUserId()),
                 (this.loading = !0),
                 this.route.params.subscribe(function (e) {
-                  t.glosses.getGlossById(e.id).then(function (e) {
-                    ;(t.gloss = e),
+                  t.sautes.getsauteById(e.id).then(function (e) {
+                    ;(t.saute = e),
                       (t.loading = !1),
                       e.usersLiked.find(function (e) {
                         return e === t.userId
@@ -23965,33 +23965,33 @@
               var t = this
               if (this.disliked) return 0
               ;(this.likePending = !0),
-                this.glosses.likeGloss(this.gloss._id, !this.liked).then(function (e) {
-                  ;(t.likePending = !1), (t.liked = e), e ? t.gloss.likes++ : t.gloss.likes--
+                this.sautes.likesaute(this.saute._id, !this.liked).then(function (e) {
+                  ;(t.likePending = !1), (t.liked = e), e ? t.saute.likes++ : t.saute.likes--
                 })
             }),
             (t.prototype.onDislike = function () {
               var t = this
               if (this.liked) return 0
               ;(this.likePending = !0),
-                this.glosses.dislikeGloss(this.gloss._id, !this.disliked).then(function (e) {
+                this.sautes.dislikesaute(this.saute._id, !this.disliked).then(function (e) {
                   ;(t.likePending = !1),
                     (t.disliked = e),
-                    e ? t.gloss.dislikes++ : t.gloss.dislikes--
+                    e ? t.saute.dislikes++ : t.saute.dislikes--
                 })
             }),
             (t.prototype.onBack = function () {
-              this.router.navigate(["/glosses"])
+              this.router.navigate(["/sautes"])
             }),
             (t.prototype.onModify = function () {
-              this.router.navigate(["/modify-gloss", this.gloss._id])
+              this.router.navigate(["/modify-saute", this.saute._id])
             }),
             (t.prototype.onDelete = function () {
               var t = this
               ;(this.loading = !0),
-                this.glosses
-                  .deleteGloss(this.gloss._id)
+                this.sautes
+                  .deletesaute(this.saute._id)
                   .then(function (e) {
-                    console.log(e.message), (t.loading = !1), t.router.navigate(["/glosses"])
+                    console.log(e.message), (t.loading = !1), t.router.navigate(["/sautes"])
                   })
                   .catch(function (e) {
                     ;(t.loading = !1), (t.errorMessage = e.message), console.error(e)
@@ -24004,7 +24004,7 @@
           encapsulation: 0,
           styles: [
             [
-              ".gloss-container[_ngcontent-%COMP%]{display:flex}.gloss-container[_ngcontent-%COMP%]   img[_ngcontent-%COMP%]{max-height:70vh;flex:1}.gloss-info[_ngcontent-%COMP%]{padding:40px 20px;flex:1}.manufacturer[_ngcontent-%COMP%], .gloss-name[_ngcontent-%COMP%]{margin:0}.like-buttons[_ngcontent-%COMP%]{display:flex}.like-buttons[_ngcontent-%COMP%]   i[_ngcontent-%COMP%]{margin-right:.5em;cursor:pointer}.dislikes[_ngcontent-%COMP%], .likes[_ngcontent-%COMP%]{margin:0 .4em}.liked[_ngcontent-%COMP%]{color:#33db00}.disliked[_ngcontent-%COMP%]{color:#db3300}.like[_ngcontent-%COMP%]:hover{color:#33db00}.dislike[_ngcontent-%COMP%]{transform:scaleX(-1) translateY(5px)}.dislike[_ngcontent-%COMP%]:hover{color:#db3300}.disabled[_ngcontent-%COMP%]{cursor:none;color:#bebebe}.disabled[_ngcontent-%COMP%]:hover{color:#bebebe}.control-buttons[_ngcontent-%COMP%]   button[_ngcontent-%COMP%]{margin:1em 1em 0 0}"
+              ".saute-container[_ngcontent-%COMP%]{display:flex}.saute-container[_ngcontent-%COMP%]   img[_ngcontent-%COMP%]{max-height:70vh;flex:1}.saute-info[_ngcontent-%COMP%]{padding:40px 20px;flex:1}.manufacturer[_ngcontent-%COMP%], .saute-name[_ngcontent-%COMP%]{margin:0}.like-buttons[_ngcontent-%COMP%]{display:flex}.like-buttons[_ngcontent-%COMP%]   i[_ngcontent-%COMP%]{margin-right:.5em;cursor:pointer}.dislikes[_ngcontent-%COMP%], .likes[_ngcontent-%COMP%]{margin:0 .4em}.liked[_ngcontent-%COMP%]{color:#33db00}.disliked[_ngcontent-%COMP%]{color:#db3300}.like[_ngcontent-%COMP%]:hover{color:#33db00}.dislike[_ngcontent-%COMP%]{transform:scaleX(-1) translateY(5px)}.dislike[_ngcontent-%COMP%]:hover{color:#db3300}.disabled[_ngcontent-%COMP%]{cursor:none;color:#bebebe}.disabled[_ngcontent-%COMP%]:hover{color:#bebebe}.control-buttons[_ngcontent-%COMP%]   button[_ngcontent-%COMP%]{margin:1em 1em 0 0}"
             ]
           ],
           data: {}
@@ -24143,7 +24143,7 @@
           },
           function (t, e) {
             var n = e.component
-            t(e, 7, 0, n.gloss.likes), t(e, 14, 0, n.gloss.dislikes)
+            t(e, 7, 0, n.saute.likes), t(e, 14, 0, n.saute.dislikes)
           }
         )
       }
@@ -24289,7 +24289,7 @@
               null,
               22,
               "div",
-              [["class", "gloss-container"]],
+              [["class", "saute-container"]],
               null,
               null,
               null,
@@ -24306,7 +24306,7 @@
               null,
               20,
               "div",
-              [["class", "gloss-info"]],
+              [["class", "saute-info"]],
               null,
               null,
               null,
@@ -24314,7 +24314,7 @@
               null
             )),
             (t()(),
-            Li(3, 0, null, null, 1, "h1", [["class", "gloss-name"]], null, null, null, null, null)),
+            Li(3, 0, null, null, 1, "h1", [["class", "saute-name"]], null, null, null, null, null)),
             (t()(), Ji(4, null, ["", ""])),
             (t()(),
             Li(
@@ -24387,15 +24387,15 @@
             var n = e.component
             t(e, 12, 0, !n.likePending),
               t(e, 14, 0, n.likePending),
-              t(e, 20, 0, n.userId === n.gloss.userId),
-              t(e, 22, 0, n.userId === n.gloss.userId)
+              t(e, 20, 0, n.userId === n.saute.userId),
+              t(e, 22, 0, n.userId === n.saute.userId)
           },
           function (t, e) {
             var n = e.component
-            t(e, 1, 0, null == n.gloss ? null : n.gloss.imageUrl),
-              t(e, 4, 0, null == n.gloss ? null : n.gloss.name),
-              t(e, 6, 0, null == n.gloss ? null : n.gloss.manufacturer),
-              t(e, 10, 0, n.gloss.description),
+            t(e, 1, 0, null == n.saute ? null : n.saute.imageUrl),
+              t(e, 4, 0, null == n.saute ? null : n.saute.name),
+              t(e, 6, 0, null == n.saute ? null : n.saute.manufacturer),
+              t(e, 10, 0, n.saute.description),
               t(e, 16, 0, Br(e, 17).disabled || null, "NoopAnimations" === Br(e, 17)._animationMode)
           }
         )
@@ -24420,7 +24420,7 @@
         return ea(
           0,
           [
-            (t()(), Li(0, 0, null, null, 1, "app-single-gloss", [], null, null, null, Cv, mv)),
+            (t()(), Li(0, 0, null, null, 1, "app-single-saute", [], null, null, null, Cv, mv)),
             no(1, 114688, null, 0, dv, [rv, th, Ug, cp], null, null)
           ],
           function (t, e) {
@@ -24429,7 +24429,7 @@
           null
         )
       }
-      var Sv = Nr("app-single-gloss", dv, Ev, {}, {}, []),
+      var Sv = Nr("app-single-saute", dv, Ev, {}, {}, []),
         kv = (function () {
           return function () {}
         })(),
@@ -24438,7 +24438,7 @@
             ;(this.formBuilder = t),
               (this.route = e),
               (this.router = n),
-              (this.glosses = r),
+              (this.sautes = r),
               (this.auth = o)
           }
           return (
@@ -24448,10 +24448,10 @@
                 this.route.params.subscribe(function (e) {
                   e.id
                     ? ((t.mode = "edit"),
-                      t.glosses
-                        .getGlossById(e.id)
+                      t.sautes
+                        .getsauteById(e.id)
                         .then(function (e) {
-                          ;(t.gloss = e), t.initModifyForm(e), (t.loading = !1)
+                          ;(t.saute = e), t.initModifyForm(e), (t.loading = !1)
                         })
                         .catch(function (e) {
                           t.errorMsg = JSON.stringify(e)
@@ -24461,7 +24461,7 @@
             }),
             (t.prototype.initEmptyForm = function () {
               var t = this
-              ;(this.glossForm = this.formBuilder.group({
+              ;(this.sauteForm = this.formBuilder.group({
                 name: [null, yy.required],
                 manufacturer: [null, yy.required],
                 description: [null, yy.required],
@@ -24470,50 +24470,50 @@
                 heat: [1, yy.required],
                 heatValue: [{ value: 1, disabled: !0 }]
               })),
-                this.glossForm.get("heat").valueChanges.subscribe(function (e) {
-                  t.glossForm.get("heatValue").setValue(e)
+                this.sauteForm.get("heat").valueChanges.subscribe(function (e) {
+                  t.sauteForm.get("heatValue").setValue(e)
                 })
             }),
             (t.prototype.initModifyForm = function (t) {
               var e = this
-              ;(this.glossForm = this.formBuilder.group({
-                name: [this.gloss.name, yy.required],
-                manufacturer: [this.gloss.manufacturer, yy.required],
-                description: [this.gloss.description, yy.required],
-                image: [this.gloss.imageUrl, yy.required],
-                mainPepper: [this.gloss.mainPepper, yy.required],
-                heat: [this.gloss.heat, yy.required],
-                heatValue: [{ value: this.gloss.heat, disabled: !0 }]
+              ;(this.sauteForm = this.formBuilder.group({
+                name: [this.saute.name, yy.required],
+                manufacturer: [this.saute.manufacturer, yy.required],
+                description: [this.saute.description, yy.required],
+                image: [this.saute.imageUrl, yy.required],
+                mainPepper: [this.saute.mainPepper, yy.required],
+                heat: [this.saute.heat, yy.required],
+                heatValue: [{ value: this.saute.heat, disabled: !0 }]
               })),
-                this.glossForm.get("heat").valueChanges.subscribe(function (t) {
-                  e.glossForm.get("heatValue").setValue(t)
+                this.sauteForm.get("heat").valueChanges.subscribe(function (t) {
+                  e.sauteForm.get("heatValue").setValue(t)
                 }),
-                (this.imagePreview = this.gloss.imageUrl)
+                (this.imagePreview = this.saute.imageUrl)
             }),
             (t.prototype.onSubmit = function () {
               var t = this
               this.loading = !0
               var e = new kv()
-              ;(e.name = this.glossForm.get("name").value),
-                (e.manufacturer = this.glossForm.get("manufacturer").value),
-                (e.description = this.glossForm.get("description").value),
-                (e.mainPepper = this.glossForm.get("mainPepper").value),
-                (e.heat = this.glossForm.get("heat").value),
+              ;(e.name = this.sauteForm.get("name").value),
+                (e.manufacturer = this.sauteForm.get("manufacturer").value),
+                (e.description = this.sauteForm.get("description").value),
+                (e.mainPepper = this.sauteForm.get("mainPepper").value),
+                (e.heat = this.sauteForm.get("heat").value),
                 (e.userId = this.auth.getUserId()),
                 "new" === this.mode
-                  ? this.glosses
-                      .createGloss(e, this.glossForm.get("image").value)
+                  ? this.sautes
+                      .createsaute(e, this.sauteForm.get("image").value)
                       .then(function (e) {
-                        console.log(e.message), (t.loading = !1), t.router.navigate(["/glosses"])
+                        console.log(e.message), (t.loading = !1), t.router.navigate(["/sautes"])
                       })
                       .catch(function (e) {
                         console.error(e), (t.loading = !1), (t.errorMsg = e.message)
                       })
                   : "edit" === this.mode &&
-                    this.glosses
-                      .modifyGloss(this.gloss._id, e, this.glossForm.get("image").value)
+                    this.sautes
+                      .modifysaute(this.saute._id, e, this.sauteForm.get("image").value)
                       .then(function (e) {
-                        console.log(e.message), (t.loading = !1), t.router.navigate(["/glosses"])
+                        console.log(e.message), (t.loading = !1), t.router.navigate(["/sautes"])
                       })
                       .catch(function (e) {
                         console.error(e), (t.loading = !1), (t.errorMsg = e.message)
@@ -24522,7 +24522,7 @@
             (t.prototype.onFileAdded = function (t) {
               var e = this,
                 n = t.target.files[0]
-              this.glossForm.get("image").setValue(n), this.glossForm.updateValueAndValidity()
+              this.sauteForm.get("image").setValue(n), this.sauteForm.updateValueAndValidity()
               var r = new FileReader()
               ;(r.onload = function () {
                 e.imagePreview = r.result
@@ -25340,7 +25340,7 @@
           ],
           function (t, e) {
             var n = e.component
-            t(e, 2, 0, n.glossForm),
+            t(e, 2, 0, n.sauteForm),
               t(e, 11, 0, "name"),
               t(e, 20, 0, "manufacturer"),
               t(e, 29, 0, "description"),
@@ -25349,7 +25349,7 @@
               t(e, 45, 0, "mainPepper"),
               t(e, 56, 0, "heat"),
               t(e, 63, 0, "heatValue"),
-              t(e, 67, 0, n.glossForm.invalid, "primary")
+              t(e, 67, 0, n.sauteForm.invalid, "primary")
           },
           function (t, e) {
             t(
@@ -25467,7 +25467,7 @@
         return ea(
           0,
           [
-            (t()(), Li(0, 0, null, null, 1, "app-gloss-form", [], null, null, null, Iv, xv)),
+            (t()(), Li(0, 0, null, null, 1, "app-saute-form", [], null, null, null, Iv, xv)),
             no(1, 114688, null, 0, Tv, [tg, th, cp, rv, Ug], null, null)
           ],
           function (t, e) {
@@ -25476,7 +25476,7 @@
           null
         )
       }
-      var Rv = Nr("app-gloss-form", Tv, Nv, {}, {}, []),
+      var Rv = Nr("app-saute-form", Tv, Nv, {}, {}, []),
         Dv = (function () {
           function t(t) {
             this.auth = t
@@ -25519,7 +25519,7 @@
               5,
               "a",
               [
-                ["routerLink", "glosses"],
+                ["routerLink", "sautes"],
                 ["routerLinkActive", "active"]
               ],
               [
@@ -25551,10 +25551,10 @@
             ),
             qi(603979776, 1, { links: 1 }),
             qi(603979776, 2, { linksWithHrefs: 1 }),
-            (t()(), Ji(-1, null, [" ALL GLOSSES "]))
+            (t()(), Ji(-1, null, [" ALL sautes "]))
           ],
           function (t, e) {
-            t(e, 1, 0, "glosses"), t(e, 2, 0, "active")
+            t(e, 1, 0, "sautes"), t(e, 2, 0, "active")
           },
           function (t, e) {
             t(e, 0, 0, Br(e, 1).target, Br(e, 1).href)
@@ -25574,7 +25574,7 @@
               5,
               "a",
               [
-                ["routerLink", "new-gloss"],
+                ["routerLink", "new-saute"],
                 ["routerLinkActive", "active"]
               ],
               [
@@ -25606,10 +25606,10 @@
             ),
             qi(603979776, 3, { links: 1 }),
             qi(603979776, 4, { linksWithHrefs: 1 }),
-            (t()(), Ji(-1, null, [" ADD GLOSS "]))
+            (t()(), Ji(-1, null, [" ADD saute "]))
           ],
           function (t, e) {
-            t(e, 1, 0, "new-gloss"), t(e, 2, 0, "active")
+            t(e, 1, 0, "new-saute"), t(e, 2, 0, "active")
           },
           function (t, e) {
             t(e, 0, 0, Br(e, 1).target, Br(e, 1).href)
@@ -25816,9 +25816,9 @@
               null
             )),
             (t()(), Li(13, 0, null, null, 1, "h1", [], null, null, null, null, null)),
-            (t()(), Ji(-1, null, [" AWESOME GLOSSES "])),
+            (t()(), Ji(-1, null, [" AWESOME sautes "])),
             (t()(), Li(15, 0, null, null, 1, "h5", [], null, null, null, null, null)),
-            (t()(), Ji(-1, null, [" THE WEB'S BEST HOT GLOSS REVIEWS "])),
+            (t()(), Ji(-1, null, [" THE WEB'S BEST HOT saute REVIEWS "])),
             (t()(),
             Li(
               17,
@@ -26057,12 +26057,12 @@
                   [
                     { path: "signup", component: Hg },
                     { path: "login", component: Zg },
-                    { path: "glosses", component: ov, canActivate: [Wv] },
-                    { path: "gloss/:id", component: dv, canActivate: [Wv] },
-                    { path: "new-gloss", component: Tv, canActivate: [Wv] },
-                    { path: "modify-gloss/:id", component: Tv, canActivate: [Wv] },
-                    { path: "", pathMatch: "full", redirectTo: "glosses" },
-                    { path: "**", redirectTo: "glosses" }
+                    { path: "sautes", component: ov, canActivate: [Wv] },
+                    { path: "saute/:id", component: dv, canActivate: [Wv] },
+                    { path: "new-saute", component: Tv, canActivate: [Wv] },
+                    { path: "modify-saute/:id", component: Tv, canActivate: [Wv] },
+                    { path: "", pathMatch: "full", redirectTo: "sautes" },
+                    { path: "**", redirectTo: "sautes" }
                   ]
                 ]
               },

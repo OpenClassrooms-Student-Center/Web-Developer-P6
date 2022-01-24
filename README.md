@@ -1,4 +1,4 @@
-# AWESOME GLOSSES
+# AWESOME sautes
 
 ## Installation
 
