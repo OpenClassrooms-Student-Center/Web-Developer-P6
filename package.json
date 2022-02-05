@@ -5,7 +5,7 @@
   "main": "index.html",
   "scripts": {
     "start": "run-script-os",
-    "start:linux:darwin": "concurrently \"node ./node_modules/.bin/http-server -a localhost -p 8081\"  \"sleep 1 && open http://localhost:8081\"",
+    "start:linux:darwin": "concurrently \"node ./node_modules/.bin/http-server -a saute-back.vercel.app -p 8081\"  \"sleep 1 && open http://saute-back.vercel.app:8081\"",
     "start:win32": "node node_modules/live-server/live-server --port=8081"
   },
   "author": "",

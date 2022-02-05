@@ -22598,10 +22598,7 @@
               var n = this
               return new Promise(function (r, o) {
                 n.http
-                  .post("http://saute-back.vercel.app:3000/api/auth/signup", {
-                    email: t,
-                    password: e
-                  })
+                  .post("http://saute-back.vercel.app:3000/api/auth/signup", { email: t, password: e })
                   .subscribe(
                     function (t) {
                       r(t)
@@ -22622,10 +22619,7 @@
               var n = this
               return new Promise(function (r, o) {
                 n.http
-                  .post("http://saute-back.vercel.app:3000/api/auth/login", {
-                    email: t,
-                    password: e
-                  })
+                  .post("http://saute-back.vercel.app:3000/api/auth/login", { email: t, password: e })
                   .subscribe(
                     function (t) {
                       ;(n.userId = t.userId), (n.authToken = t.token), n.isAuth$.next(!0), r()
@@ -24513,7 +24507,7 @@
                         console.log(e.message), (t.loading = !1), t.router.navigate(["/sautes"])
                       })
                       .catch(function (e) {
-                        alert(e), (t.loading = !1), (t.errorMsg = e.message)
+                        console.error(e), (t.loading = !1), (t.errorMsg = e.message)
                       })
                   : "edit" === this.mode &&
                     this.sautes
