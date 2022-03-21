@@ -1,23 +1,27 @@
-# HOT TAKES #
+# HotTakes
 
-## Installation ##
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.4.
 
-Here are the dependancies you need to install:
-- NodeJS 12.14 or 14.0.
-- Angular CLI 7.0.2.
-- node-sass : make sure to use the corresponding version to NodeJS. For Noe 14.0 for instance, you need node-sass in version 4.14+.
+## Development server
 
-On Windows, these installations require to use PowerShell in administrator mode.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-Then, clone this repo, run `npm install`, and run `npm install --save-dev run-script-os`.
+## Code scaffolding
 
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Usage ##
+## Build
 
-Run `npm start`. This should both run the local server and launch your browser.
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-If your browser fails to launch, or shows a 404 error, navigate your browser to http://localhost:8080.
+## Running unit tests
 
-The app should reload automatically when you make a change to a file.
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-Use `Ctrl+C` in the terminal to stop the local server.
+## Running end-to-end tests
+
+Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

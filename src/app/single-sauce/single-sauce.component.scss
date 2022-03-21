@@ -1,0 +1,67 @@
+.sauce-container {
+  display: flex;
+  img {
+    max-height: 70vh;
+    flex: 1;
+  }
+}
+
+.sauce-info {
+  padding: 40px 20px;
+  flex: 1;
+}
+
+.manufacturer {
+  margin: 0;
+}
+
+.sauce-name {
+  margin: 0;
+}
+
+.like-buttons {
+  display: flex;
+  i {
+    margin-right: 0.5em;
+    cursor: pointer;
+  }
+}
+
+.likes, .dislikes {
+  margin: 0 0.4em;
+}
+
+.liked {
+  color: rgba(51, 219, 0, 1);
+}
+
+.disliked {
+  color: rgba(219, 51, 0, 1);
+}
+
+.like {
+  &:hover {
+    color: rgba(51, 219, 0, 1);
+  }
+}
+
+.dislike {
+  transform: scaleX(-1) translateY(5px);
+  &:hover {
+    color: rgba(219, 51, 0, 1);
+  }
+}
+
+.disabled {
+  cursor: none;
+  &:hover {
+    color: rgba(190, 190, 190, 1);
+  }
+  color: rgba(190, 190, 190, 1);
+}
+
+.control-buttons {
+  button {
+    margin: 1em 1em 0 0;
+  }
+}

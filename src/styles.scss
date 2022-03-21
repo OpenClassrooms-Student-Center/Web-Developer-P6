@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body {
+  font-family: "Source Sans Pro", sans-serif ;
+  letter-spacing: 0.1em;
+  margin: 0;
+  white-space: pre-line;
+}
+
+mat-spinner {
+  margin: auto;
+}
