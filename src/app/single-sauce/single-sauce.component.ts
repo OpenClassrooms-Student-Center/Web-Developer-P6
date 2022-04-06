@@ -21,9 +21,9 @@ export class SingleSauceComponent implements OnInit {
   errorMessage!: string;
 
   constructor(private sauces: SaucesService,
-              private route: ActivatedRoute,
-              private auth: AuthService,
-              private router: Router) { }
+    private route: ActivatedRoute,
+    private auth: AuthService,
+    private router: Router) { }
 
   ngOnInit() {
     this.userId = this.auth.getUserId();
@@ -73,7 +73,7 @@ export class SingleSauceComponent implements OnInit {
           this.likePending = false;
           this.disliked = disliked;
         }),
-        map(disliked => ({ ...sauce, likes: disliked ? sauce.dislikes + 1 : sauce.dislikes - 1 })),
+        map(disliked => ({ ...sauce, dislikes: disliked ? sauce.dislikes + 1 : sauce.dislikes - 1 })),
         tap(sauce => this.sauce$ = of(sauce))
       )),
     ).subscribe();
