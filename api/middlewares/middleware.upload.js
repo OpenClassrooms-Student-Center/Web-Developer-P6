@@ -1,6 +1,14 @@
 const multer = require('multer')
 const util = require("util")
 
+// create images directory if not existed
+var fs = require('fs');
+var dir = './images';
+
+if (!fs.existsSync(dir)){
+    fs.mkdirSync(dir);
+}
+
 const MIME_TYPES = {
     'image/jpg': 'jpg',
     'image/jpeg': 'jpg',
