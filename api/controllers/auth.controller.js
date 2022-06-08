@@ -19,6 +19,8 @@ exports.signup = (req, res) => {
         res.status(200).send({ message: err })
     })
 }
+
+//signin
 exports.signin = (req, res) => {
     User.findOne({
         email: req.body.email
