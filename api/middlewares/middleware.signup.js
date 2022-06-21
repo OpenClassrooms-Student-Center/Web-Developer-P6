@@ -1,4 +1,4 @@
-const db = require("../models")
+/*const db = require("../models")
 const User = db.user
 duplicateEmailChecker = (req, res, next) => {
     User.findOne({
@@ -18,4 +18,4 @@ duplicateEmailChecker = (req, res, next) => {
 const middlewareSignup = {
     duplicateEmailChecker
 }
-module.exports = middlewareSignup
+module.exports = middlewareSignup*/

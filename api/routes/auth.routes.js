@@ -10,9 +10,9 @@ module.exports = function(app) {
     })
     app.post(
         "/api/auth/signup",
-        [
+        /*[
             middlewareSignup.duplicateEmailChecker
-        ],
+        ],*/
         controller.signup
     )
     app.post("/api/auth/login", controller.signin)
