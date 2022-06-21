@@ -11,10 +11,10 @@ exports.signup = (req, res) => {
         email: req.body.email,
         password: bcrypt.hashSync(req.body.password, 8)
     })
+    
     user.save((err, user) => {
-        if (err) {
-            res.status(500).send({ message: err })
-            return
+        if (err) { 
+             return res.status(500).send({ message:"Erreur lors de l'enregistrement de l'utilisateur" }) 
         }
         res.status(200).send({ message: err })
     })
