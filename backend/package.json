@@ -11,7 +11,8 @@
   "dependencies": {
     "express": "^4.18.1",
     "mogoose": "^0.0.1-security",
-    "mongoose": "^6.4.4"
+    "mongoose": "^6.4.4",
+    "mongoose-unique-validator": "^3.1.0"
   },
   "description": ""
 }
