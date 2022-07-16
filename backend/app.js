@@ -1,17 +1,32 @@
 const express = require("express");
+const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const path = require("path");
 
-const sauceRoutes = require("./routes/sauce");
 const userRoutes = require("./routes/user");
+const sauceRoutes = require("./routes/sauce");
 
-const app = express();
+// Load env variables
+require("dotenv").config();
+const db = process.env;
+
 mongoose
   .connect(
-    "mongodb+srv://lemaon74:1234567890@cluster0.kluwcsg.mongodb.net/test?retryWrites=true&w=majority",
+    "mongodb+srv://" +
+      db.USER_DB +
+      ":" +
+      db.PASS_DB +
+      "@" +
+      db.CLUSTER_DB +
+      "." +
+      db.NAME_DB +
+      "?retryWrites=true&w=majority",
     { useNewUrlParser: true, useUnifiedTopology: true }
   )
   .then(() => console.log("Connexion à MongoDB réussie !"))
   .catch(() => console.log("Connexion à MongoDB échouée !"));
+console.log();
+const app = express();
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -25,9 +40,12 @@ app.use((req, res, next) => {
   );
   next();
 });
-app.use(express.json());
 
-app.use("/api/sauces", sauceRoutes);
+app.use(bodyParser.json());
+
+app.use("/images", express.static(path.join(__dirname, "images")));
+
 app.use("/api/auth", userRoutes);
+app.use("/api/sauces", sauceRoutes);
 
 module.exports = app;

@@ -10,10 +10,15 @@
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "body-parser": "^1.20.0",
+    "dotenv": "^16.0.1",
+    "email-validator": "^2.0.4",
     "express": "^4.18.1",
+    "jsonwebtoken": "^8.5.1",
     "mogoose": "^0.0.1-security",
     "mongoose": "^6.4.4",
-    "mongoose-unique-validator": "^3.1.0"
+    "mongoose-unique-validator": "^3.1.0",
+    "multer": "^1.4.5-lts.1"
   },
   "description": ""
 }
