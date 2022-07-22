@@ -24,7 +24,7 @@ exports.signup = (req, res, next) => {
       .catch((error) => res.status(500).json({ error }));
   } else
     return res.status(403).json({
-      message: "Votre mot de passe doit contenir 8 caractères minimum.",
+      alert: "Votre mot de passe doit contenir 8 caractères minimum.",
     });
 };
 
