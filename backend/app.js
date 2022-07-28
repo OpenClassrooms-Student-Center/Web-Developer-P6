@@ -39,7 +39,7 @@ const app = express();
 
 // securisation des entetes
 app.use(helmet());
-app.disable("x-powered-by");
+
 // fin
 
 // Parametrage des headers (évite les err de cors)
@@ -54,13 +54,15 @@ app.use((req, res, next) => {
     "Access-Control-Allow-Methods",
     "GET, POST, PUT, DELETE, PATCH, OPTIONS"
   );
+  res.setHeader("Cross-Origin-Resource-Policy", "same-site");
+
   next();
 });
 // Fin de parametrage
 const expiryDate = new Date(Date.now() + 60000); // 1 min (1 * 60 * 1000)
 app.use(
   session({
-    name: "sessionId",
+    name: "session",
     secret: process.env.SEC_SES,
     cookie: {
       secure: true,
