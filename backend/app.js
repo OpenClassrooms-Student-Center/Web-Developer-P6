@@ -4,10 +4,12 @@ const bodyParser = require("body-parser");
 const helmet = require("helmet");
 const mongoose = require("mongoose");
 const path = require("path");
-
+const session = require("cookie-session");
+// Fin des modules
+// Routes
 const userRoutes = require("./routes/user");
 const sauceRoutes = require("./routes/sauce");
-// Fin des modules
+//Fin Routes
 
 // Load env variables
 require("dotenv").config();
@@ -35,6 +37,11 @@ mongoose
 
 const app = express();
 
+// securisation des entetes
+app.use(helmet());
+app.disable("x-powered-by");
+// fin
+
 // Parametrage des headers (évite les err de cors)
 
 app.use((req, res, next) => {
@@ -50,6 +57,19 @@ app.use((req, res, next) => {
   next();
 });
 // Fin de parametrage
+const expiryDate = new Date(Date.now() + 60000); // 1 min (1 * 60 * 1000)
+app.use(
+  session({
+    name: "sessionId",
+    secret: process.env.SEC_SES,
+    cookie: {
+      secure: true,
+      httpOnly: true,
+      domain: "http://localhost:3000",
+      expires: expiryDate,
+    },
+  })
+);
 // BodyParser (rend le corps de la requète facilement exploitable)
 app.use(bodyParser.json());
 // Fin de BodyParser
