@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
-  isAuth$ = new BehaviorSubject<boolean>(false);
+  isAuth$ = new BehaviorSubject<boolean>(localStorage.getItem('authToken') ? true : false);
   private authToken = '';
   private userId = '';
 
@@ -20,7 +20,7 @@ export class AuthService {
   }
 
   getToken() {
-    return this.authToken;
+    return localStorage.getItem('authToken');
   }
 
   getUserId() {
@@ -31,14 +31,14 @@ export class AuthService {
     return this.http.post<{ userId: string, token: string }>('http://localhost:3000/api/auth/login', {email: email, password: password}).pipe(
       tap(({ userId, token }) => {
         this.userId = userId;
-        this.authToken = token;
+        localStorage.setItem('authToken', token);
         this.isAuth$.next(true);
       })
     );
   }
 
   logout() {
-    this.authToken = '';
+    localStorage.removeItem('authToken');
     this.userId = '';
     this.isAuth$.next(false);
     this.router.navigate(['login']);
