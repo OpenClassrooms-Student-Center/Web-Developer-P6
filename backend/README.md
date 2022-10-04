@@ -79,7 +79,7 @@ Like sauce
 | `/:id/like` | `string` | Permet à l'utilisateur de liker (aimer) ou disliké (ne pas aimé) une sauce spécifique                     |
 
 
-## Authors
+## Author
 
-- [@VanGitParis](https://www.github.com/VanGitParis)
+- [@VanGitParis](https://www.github.com/VanGitParis/Développeur Web-P6)
 
