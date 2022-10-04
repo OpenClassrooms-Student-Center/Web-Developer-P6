@@ -1,0 +1,58 @@
+"use strict";
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.getDefaultComponentOptions = void 0;
+const core_1 = require("@angular-devkit/core");
+const schema_1 = require("@schematics/angular/component/schema");
+/**
+ * Returns the default options for the `@schematics/angular:component` schematic which would
+ * have been specified at project initialization (ng new or ng init).
+ *
+ * This is necessary because the Angular CLI only exposes the default values for the "--style",
+ * "--inlineStyle", "--skipTests" and "--inlineTemplate" options to the "component" schematic.
+ */
+function getDefaultComponentOptions(project) {
+    // Note: Not all options which are available when running "ng new" will be stored in the
+    // workspace config. List of options which will be available in the configuration:
+    // angular/angular-cli/blob/master/packages/schematics/angular/application/index.ts#L109-L131
+    let skipTests = getDefaultComponentOption(project, ['skipTests'], null);
+    // In case "skipTests" is not set explicitly, also look for the "spec" option. The "spec"
+    // option has been deprecated but can be still used in older Angular CLI projects.
+    // See: https://github.com/angular/angular-cli/commit/a12a4e02a4689b5bdbc6e740c0d9865afb55671a
+    if (skipTests === null) {
+        skipTests = !getDefaultComponentOption(project, ['spec'], true);
+    }
+    return {
+        style: getDefaultComponentOption(project, ['style', 'styleext'], schema_1.Style.Css),
+        inlineStyle: getDefaultComponentOption(project, ['inlineStyle'], false),
+        inlineTemplate: getDefaultComponentOption(project, ['inlineTemplate'], false),
+        skipTests: skipTests,
+    };
+}
+exports.getDefaultComponentOptions = getDefaultComponentOptions;
+/**
+ * Gets the default value for the specified option. The default options will be determined
+ * by looking at the stored schematic options for `@schematics/angular:component` in the
+ * CLI workspace configuration.
+ */
+function getDefaultComponentOption(project, optionNames, fallbackValue) {
+    const schematicOptions = (0, core_1.isJsonObject)(project.extensions.schematics || null)
+        ? project.extensions.schematics
+        : null;
+    const defaultSchematic = schematicOptions
+        ? schematicOptions['@schematics/angular:component']
+        : null;
+    for (const optionName of optionNames) {
+        if (defaultSchematic && defaultSchematic[optionName] != null) {
+            return defaultSchematic[optionName];
+        }
+    }
+    return fallbackValue;
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic2NoZW1hdGljLW9wdGlvbnMuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi8uLi8uLi9zcmMvY2RrL3NjaGVtYXRpY3MvdXRpbHMvc2NoZW1hdGljLW9wdGlvbnMudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUFBOzs7Ozs7R0FNRzs7O0FBR0gsK0NBQThEO0FBQzlELGlFQUFtRTtBQUVuRTs7Ozs7O0dBTUc7QUFDSCxTQUFnQiwwQkFBMEIsQ0FBQyxPQUEwQjtJQUNuRSx3RkFBd0Y7SUFDeEYsa0ZBQWtGO0lBQ2xGLDZGQUE2RjtJQUM3RixJQUFJLFNBQVMsR0FBRyx5QkFBeUIsQ0FBaUIsT0FBTyxFQUFFLENBQUMsV0FBVyxDQUFDLEVBQUUsSUFBSSxDQUFDLENBQUM7SUFFeEYseUZBQXlGO0lBQ3pGLGtGQUFrRjtJQUNsRiw4RkFBOEY7SUFDOUYsSUFBSSxTQUFTLEtBQUssSUFBSSxFQUFFO1FBQ3RCLFNBQVMsR0FBRyxDQUFDLHlCQUF5QixDQUFDLE9BQU8sRUFBRSxDQUFDLE1BQU0sQ0FBQyxFQUFFLElBQUksQ0FBQyxDQUFDO0tBQ2pFO0lBRUQsT0FBTztRQUNMLEtBQUssRUFBRSx5QkFBeUIsQ0FBUSxPQUFPLEVBQUUsQ0FBQyxPQUFPLEVBQUUsVUFBVSxDQUFDLEVBQUUsY0FBSyxDQUFDLEdBQUcsQ0FBQztRQUNsRixXQUFXLEVBQUUseUJBQXlCLENBQUMsT0FBTyxFQUFFLENBQUMsYUFBYSxDQUFDLEVBQUUsS0FBSyxDQUFDO1FBQ3ZFLGNBQWMsRUFBRSx5QkFBeUIsQ0FBQyxPQUFPLEVBQUUsQ0FBQyxnQkFBZ0IsQ0FBQyxFQUFFLEtBQUssQ0FBQztRQUM3RSxTQUFTLEVBQUUsU0FBUztLQUNyQixDQUFDO0FBQ0osQ0FBQztBQW5CRCxnRUFtQkM7QUFFRDs7OztHQUlHO0FBQ0gsU0FBUyx5QkFBeUIsQ0FDaEMsT0FBMEIsRUFDMUIsV0FBcUIsRUFDckIsYUFBZ0I7SUFFaEIsTUFBTSxnQkFBZ0IsR0FBRyxJQUFBLG1CQUFZLEVBQUMsT0FBTyxDQUFDLFVBQVUsQ0FBQyxVQUFVLElBQUksSUFBSSxDQUFDO1FBQzFFLENBQUMsQ0FBRSxPQUFPLENBQUMsVUFBVSxDQUFDLFVBQXlCO1FBQy9DLENBQUMsQ0FBQyxJQUFJLENBQUM7SUFDVCxNQUFNLGdCQUFnQixHQUFHLGdCQUFnQjtRQUN2QyxDQUFDLENBQUUsZ0JBQWdCLENBQUMsK0JBQStCLENBQXVCO1FBQzFFLENBQUMsQ0FBQyxJQUFJLENBQUM7SUFFVCxLQUFLLE1BQU0sVUFBVSxJQUFJLFdBQVcsRUFBRTtRQUNwQyxJQUFJLGdCQUFnQixJQUFJLGdCQUFnQixDQUFDLFVBQVUsQ0FBQyxJQUFJLElBQUksRUFBRTtZQUM1RCxPQUFPLGdCQUFnQixDQUFDLFVBQVUsQ0FBaUIsQ0FBQztTQUNyRDtLQUNGO0lBRUQsT0FBTyxhQUFhLENBQUM7QUFDdkIsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICogQGxpY2Vuc2VcbiAqIENvcHlyaWdodCBHb29nbGUgTExDIEFsbCBSaWdodHMgUmVzZXJ2ZWQuXG4gKlxuICogVXNlIG9mIHRoaXMgc291cmNlIGNvZGUgaXMgZ292ZXJuZWQgYnkgYW4gTUlULXN0eWxlIGxpY2Vuc2UgdGhhdCBjYW4gYmVcbiAqIGZvdW5kIGluIHRoZSBMSUNFTlNFIGZpbGUgYXQgaHR0cHM6Ly9hbmd1bGFyLmlvL2xpY2Vuc2VcbiAqL1xuXG5pbXBvcnQge1Byb2plY3REZWZpbml0aW9ufSBmcm9tICdAYW5ndWxhci1kZXZraXQvY29yZS9zcmMvd29ya3NwYWNlJztcbmltcG9ydCB7aXNKc29uT2JqZWN0LCBKc29uT2JqZWN0fSBmcm9tICdAYW5ndWxhci1kZXZraXQvY29yZSc7XG5pbXBvcnQge1NjaGVtYSwgU3R5bGV9IGZyb20gJ0BzY2hlbWF0aWNzL2FuZ3VsYXIvY29tcG9uZW50L3NjaGVtYSc7XG5cbi8qKlxuICogUmV0dXJucyB0aGUgZGVmYXVsdCBvcHRpb25zIGZvciB0aGUgYEBzY2hlbWF0aWNzL2FuZ3VsYXI6Y29tcG9uZW50YCBzY2hlbWF0aWMgd2hpY2ggd291bGRcbiAqIGhhdmUgYmVlbiBzcGVjaWZpZWQgYXQgcHJvamVjdCBpbml0aWFsaXphdGlvbiAobmcgbmV3IG9yIG5nIGluaXQpLlxuICpcbiAqIFRoaXMgaXMgbmVjZXNzYXJ5IGJlY2F1c2UgdGhlIEFuZ3VsYXIgQ0xJIG9ubHkgZXhwb3NlcyB0aGUgZGVmYXVsdCB2YWx1ZXMgZm9yIHRoZSBcIi0tc3R5bGVcIixcbiAqIFwiLS1pbmxpbmVTdHlsZVwiLCBcIi0tc2tpcFRlc3RzXCIgYW5kIFwiLS1pbmxpbmVUZW1wbGF0ZVwiIG9wdGlvbnMgdG8gdGhlIFwiY29tcG9uZW50XCIgc2NoZW1hdGljLlxuICovXG5leHBvcnQgZnVuY3Rpb24gZ2V0RGVmYXVsdENvbXBvbmVudE9wdGlvbnMocHJvamVjdDogUHJvamVjdERlZmluaXRpb24pOiBQYXJ0aWFsPFNjaGVtYT4ge1xuICAvLyBOb3RlOiBOb3QgYWxsIG9wdGlvbnMgd2hpY2ggYXJlIGF2YWlsYWJsZSB3aGVuIHJ1bm5pbmcgXCJuZyBuZXdcIiB3aWxsIGJlIHN0b3JlZCBpbiB0aGVcbiAgLy8gd29ya3NwYWNlIGNvbmZpZy4gTGlzdCBvZiBvcHRpb25zIHdoaWNoIHdpbGwgYmUgYXZhaWxhYmxlIGluIHRoZSBjb25maWd1cmF0aW9uOlxuICAvLyBhbmd1bGFyL2FuZ3VsYXItY2xpL2Jsb2IvbWFzdGVyL3BhY2thZ2VzL3NjaGVtYXRpY3MvYW5ndWxhci9hcHBsaWNhdGlvbi9pbmRleC50cyNMMTA5LUwxMzFcbiAgbGV0IHNraXBUZXN0cyA9IGdldERlZmF1bHRDb21wb25lbnRPcHRpb248Ym9vbGVhbiB8IG51bGw+KHByb2plY3QsIFsnc2tpcFRlc3RzJ10sIG51bGwpO1xuXG4gIC8vIEluIGNhc2UgXCJza2lwVGVzdHNcIiBpcyBub3Qgc2V0IGV4cGxpY2l0bHksIGFsc28gbG9vayBmb3IgdGhlIFwic3BlY1wiIG9wdGlvbi4gVGhlIFwic3BlY1wiXG4gIC8vIG9wdGlvbiBoYXMgYmVlbiBkZXByZWNhdGVkIGJ1dCBjYW4gYmUgc3RpbGwgdXNlZCBpbiBvbGRlciBBbmd1bGFyIENMSSBwcm9qZWN0cy5cbiAgLy8gU2VlOiBodHRwczovL2dpdGh1Yi5jb20vYW5ndWxhci9hbmd1bGFyLWNsaS9jb21taXQvYTEyYTRlMDJhNDY4OWI1YmRiYzZlNzQwYzBkOTg2NWFmYjU1NjcxYVxuICBpZiAoc2tpcFRlc3RzID09PSBudWxsKSB7XG4gICAgc2tpcFRlc3RzID0gIWdldERlZmF1bHRDb21wb25lbnRPcHRpb24ocHJvamVjdCwgWydzcGVjJ10sIHRydWUpO1xuICB9XG5cbiAgcmV0dXJuIHtcbiAgICBzdHlsZTogZ2V0RGVmYXVsdENvbXBvbmVudE9wdGlvbjxTdHlsZT4ocHJvamVjdCwgWydzdHlsZScsICdzdHlsZWV4dCddLCBTdHlsZS5Dc3MpLFxuICAgIGlubGluZVN0eWxlOiBnZXREZWZhdWx0Q29tcG9uZW50T3B0aW9uKHByb2plY3QsIFsnaW5saW5lU3R5bGUnXSwgZmFsc2UpLFxuICAgIGlubGluZVRlbXBsYXRlOiBnZXREZWZhdWx0Q29tcG9uZW50T3B0aW9uKHByb2plY3QsIFsnaW5saW5lVGVtcGxhdGUnXSwgZmFsc2UpLFxuICAgIHNraXBUZXN0czogc2tpcFRlc3RzLFxuICB9O1xufVxuXG4vKipcbiAqIEdldHMgdGhlIGRlZmF1bHQgdmFsdWUgZm9yIHRoZSBzcGVjaWZpZWQgb3B0aW9uLiBUaGUgZGVmYXVsdCBvcHRpb25zIHdpbGwgYmUgZGV0ZXJtaW5lZFxuICogYnkgbG9va2luZyBhdCB0aGUgc3RvcmVkIHNjaGVtYXRpYyBvcHRpb25zIGZvciBgQHNjaGVtYXRpY3MvYW5ndWxhcjpjb21wb25lbnRgIGluIHRoZVxuICogQ0xJIHdvcmtzcGFjZSBjb25maWd1cmF0aW9uLlxuICovXG5mdW5jdGlvbiBnZXREZWZhdWx0Q29tcG9uZW50T3B0aW9uPFQ+KFxuICBwcm9qZWN0OiBQcm9qZWN0RGVmaW5pdGlvbixcbiAgb3B0aW9uTmFtZXM6IHN0cmluZ1tdLFxuICBmYWxsYmFja1ZhbHVlOiBULFxuKTogVCB7XG4gIGNvbnN0IHNjaGVtYXRpY09wdGlvbnMgPSBpc0pzb25PYmplY3QocHJvamVjdC5leHRlbnNpb25zLnNjaGVtYXRpY3MgfHwgbnVsbClcbiAgICA/IChwcm9qZWN0LmV4dGVuc2lvbnMuc2NoZW1hdGljcyBhcyBKc29uT2JqZWN0KVxuICAgIDogbnVsbDtcbiAgY29uc3QgZGVmYXVsdFNjaGVtYXRpYyA9IHNjaGVtYXRpY09wdGlvbnNcbiAgICA/IChzY2hlbWF0aWNPcHRpb25zWydAc2NoZW1hdGljcy9hbmd1bGFyOmNvbXBvbmVudCddIGFzIEpzb25PYmplY3QgfCBudWxsKVxuICAgIDogbnVsbDtcblxuICBmb3IgKGNvbnN0IG9wdGlvbk5hbWUgb2Ygb3B0aW9uTmFtZXMpIHtcbiAgICBpZiAoZGVmYXVsdFNjaGVtYXRpYyAmJiBkZWZhdWx0U2NoZW1hdGljW29wdGlvbk5hbWVdICE9IG51bGwpIHtcbiAgICAgIHJldHVybiBkZWZhdWx0U2NoZW1hdGljW29wdGlvbk5hbWVdIGFzIHVua25vd24gYXMgVDtcbiAgICB9XG4gIH1cblxuICByZXR1cm4gZmFsbGJhY2tWYWx1ZTtcbn1cbiJdfQ==
