@@ -22,7 +22,21 @@ exports.createSauce = (req,res) => {
     imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
     });
 
-  sauce.save()
-    .then(() => res.status(201).json({ message: 'Objet enregistré !'}))
-    .catch(error => res.status(400).json({ error }));
+    console.log(sauce);
+    sauce.save()
+        .then(() => res.status(201).json({ message: 'Objet enregistré !'}))
+        .catch(error => res.status(400).json({ error }));
+}
+
+// not working voir github
+exports.modifySauce = (req,res) => {
+    sauceSchema.updateOne({ _id: req.params.id }, { ...req.body, _id: req.params.id  })
+        .then(() => res.status(200).json({ message: "objet modifié" }))
+        .catch((err) => res.status(400).json({ error: err }))
+}
+// erreur -> voir le github 
+exports.deleteSauce = (req,res) => {
+    sauceSchema.deleteOne({ _id: req.params.id })
+        .then(() => res.status(200).json({ message: "object supprimé" }))
+        .catch((err) => res.status(400).json({ error: err }))
 }
