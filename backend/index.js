@@ -1,6 +1,7 @@
 const express = require("express")
 const mongoose = require("mongoose")
 const userRoutes = require("./routes/user")
+const sauceRoutes = require("./routes/sauce")
 const cors = require("cors")
 
 
@@ -19,6 +20,7 @@ app
 
 
 app.use("/api/auth", userRoutes)
+app.use("/api/sauces", sauceRoutes)
 
 
 
