@@ -1,9 +1,8 @@
-const sauce = require("../models/sauce")
 const sauceModel = require("../models/sauce")
 
 exports.getAllSauces = (req,res) => {
     sauceModel.find()
-        .then(sauce => res.status(200).json({ sauces: sauce }))
+        .then(sauce => res.status(200).json(sauce))
         .then(error => res.status(400).json({ error }))
 }
 

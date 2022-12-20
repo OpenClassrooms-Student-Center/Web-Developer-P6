@@ -6,10 +6,10 @@ const auth = require("../middleware/auth")
 const multer = require("../middleware/multer-config")
 
 
-router.get("/",  sauceController.getAllSauces)
-router.get("/:id",  sauceController.getOneSauce)
+router.get("/", auth, sauceController.getAllSauces)
+router.get("/:id", auth, sauceController.getOneSauce)
 
-router.post("/",  multer, sauceController.createSauce)
+router.post("/", auth, multer, sauceController.createSauce)
 
 
 module.exports = router
