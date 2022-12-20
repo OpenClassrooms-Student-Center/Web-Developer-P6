@@ -3,6 +3,7 @@ const mongoose = require("mongoose")
 const userRoutes = require("./routes/user")
 const sauceRoutes = require("./routes/sauce")
 const cors = require("cors")
+const path = require("path")
 
 
 mongoose.connect("mongodb+srv://jssdestroyerman:Monmotdepasse@occursefullstacknodejse.qnnkqu4.mongodb.net/?retryWrites=true&w=majority")
@@ -19,6 +20,7 @@ app
     .use(express.json())
 
 
+app.use('/images', express.static(path.join(__dirname, 'images')));
 app.use("/api/auth", userRoutes)
 app.use("/api/sauces", sauceRoutes)
 
