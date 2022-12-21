@@ -17,7 +17,7 @@ exports.signup = (req,res) => {
         .catch(err => res.status(500).json({ error: err }))
 }
 
-exports.login = (req, res, next) => {
+exports.login = (req, res) => {
     userSchema.findOne({ email: req.body.email })
         .then(user => {
             if (!user) {
@@ -36,7 +36,6 @@ exports.login = (req, res, next) => {
                             'RANDOM_TOKEN_SECRET',
                             { expiresIn: '24h' }
                         )
-
                     })
                 })
                 .catch(error => res.status(500).json({ error }))
