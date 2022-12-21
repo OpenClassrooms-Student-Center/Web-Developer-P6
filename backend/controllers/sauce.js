@@ -29,6 +29,7 @@ exports.createSauce = (req,res) => {
 }
 
 exports.modifySauce = (req,res) => {
+
     const sauceObject = req.file ?
     {
       ...JSON.parse(req.body.sauce),
@@ -73,7 +74,7 @@ exports.thumbSauce = (req,res) => {
                         .then(() =>  res.status(200).json({ message: 'Like supprimé !' }))
                         .catch(error => res.status(400).json({ error }))
                 } else if (sauce.usersDisliked.includes(req.body.userId)) {
-                    sauceSchema.updateOne({ _id: req.params.id }, { $inc: {dislikes: -1}, $pull: {usersDisliked: req.body.userId} })
+                    sauceSchema.updateOne({ _id: req.params.id }, { $inc: {dislikes: +1}, $pull: {usersDisliked: req.body.userId} })
                         .then(() => res.status(200).json({ message: "Dislike supprimé !" }))
                         .catch(error => res.status(400).json({ error }))
                 }
