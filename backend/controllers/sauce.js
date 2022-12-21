@@ -54,3 +54,15 @@ exports.deleteSauce = (req,res) => {
         })
         .catch(error => res.status(500).json({ error }))
 }
+
+exports.thumbSauce = (req,res) => {
+    if (req.body.like === 1) {
+        sauceSchema.updateOne({ _id: req.params.id }, { $inc: {likes: req.body.like++}, $push: {usersLiked: req.body.userId} })
+            .then(() => res.status(200).json({ message: "Like ajouté !" }))
+            .catch(error => res.status(400).json({ error }))
+    } else if (req.body.like === -1) {
+        sauceSchema.updateOne( { _id: req.params.id }, { $inc: {likes: req.body.like--}, $push: {usersDisliked: req.body.userId}})
+            .then(() => res.status(200).json({ message: "Dislike ajouté !" }))
+            .catch(error => res.status(400).json({ error }))
+    }
+}
