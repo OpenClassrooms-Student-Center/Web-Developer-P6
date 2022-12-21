@@ -2,7 +2,7 @@ const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
 const userSchema = require("../models/user")
 
-
+// Création d'utilisateur avec mot de passe hashé (bcrypt)
 exports.signup = (req,res) => {
     bcrypt.hash(req.body.password, 10)
         .then(hash => {
@@ -17,6 +17,7 @@ exports.signup = (req,res) => {
         .catch(err => res.status(500).json({ error: err }))
 }
 
+// Connexion d'utilisateur et bcrypt.compare avec le mot de passe présent dans la requête et celui présent dans la base de donnée
 exports.login = (req, res) => {
     userSchema.findOne({ email: req.body.email })
         .then(user => {

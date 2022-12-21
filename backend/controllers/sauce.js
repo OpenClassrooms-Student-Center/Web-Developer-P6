@@ -29,7 +29,6 @@ exports.createSauce = (req,res) => {
 }
 
 exports.modifySauce = (req,res) => {
-
     const sauceObject = req.file ?
     {
       ...JSON.parse(req.body.sauce),
@@ -70,8 +69,6 @@ exports.deleteSauce = (req,res) => {
 }
 
 exports.thumbSauce = (req,res) => {
-
-    console.log(req.body);
     if (req.body.like === 1) {
         sauceSchema.updateOne({ _id: req.params.id }, { $inc: {likes: req.body.like++}, $push: {usersLiked: req.body.userId} })
             .then(() => res.status(200).json({ message: "Like ajouté !" }))
