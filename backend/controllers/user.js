@@ -1,10 +1,15 @@
 const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
 const userSchema = require("../models/user")
+const passwordSchema = require("../models/password")
 
 // Création d'utilisateur avec mot de passe hashé (bcrypt)
 exports.signup = (req,res) => {
-    bcrypt.hash(req.body.password, 10)
+    console.log(passwordSchema.validate(req.body.password));
+    if (passwordSchema.validate(req.body.password) === false) {
+        return res.status(401).json({ error: "Le mot de passe doit contenir au minimum 8 caractères, une majuscule, et un chiffre" })
+    } else {
+        bcrypt.hash(req.body.password, 10)
         .then(hash => {
             const user = new userSchema({
                 email: req.body.email,
@@ -15,6 +20,7 @@ exports.signup = (req,res) => {
                 .catch(err => res.status(400).json({ error: err }))
         })
         .catch(err => res.status(500).json({ error: err }))
+    } 
 }
 
 // Connexion d'utilisateur et bcrypt.compare avec le mot de passe présent dans la requête et celui présent dans la base de donnée
