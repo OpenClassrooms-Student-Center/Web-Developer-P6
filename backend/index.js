@@ -5,9 +5,10 @@ const sauceRoutes = require("./routes/sauce")
 const cors = require("cors")
 const path = require("path")
 const rateLimit = require("express-rate-limit")
+require("dotenv").config()
 
 // Connection à MongoDB via mongoose
-mongoose.connect("mongodb+srv://jssdestroyerman:Monmotdepasse@occursefullstacknodejse.qnnkqu4.mongodb.net/?retryWrites=true&w=majority")
+mongoose.connect(`mongodb+srv://${process.env.DB_ID}:${process.env.DB_PASSWORD}@occursefullstacknodejse.qnnkqu4.mongodb.net/?retryWrites=true&w=majority`)
     .then(() => console.log("Connexion à MongoDB réussie"))
     .catch(() => console.log("Connexion à MongoDB échouée"))
 

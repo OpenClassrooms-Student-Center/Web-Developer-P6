@@ -2,6 +2,8 @@ const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
 const userSchema = require("../models/user")
 const passwordSchema = require("../models/password")
+require("dotenv").config()
+
 
 // Création d'utilisateur avec mot de passe hashé (bcrypt)
 exports.signup = (req,res) => {
@@ -40,7 +42,7 @@ exports.login = (req, res) => {
                         token: jwt.sign(
 
                             { userId: user._id },
-                            '3ed860b6-f985-47b0-be14-5d403c75cde0',
+                            process.env.TOKEN,
                             { expiresIn: '24h' }
                         )
                     })
