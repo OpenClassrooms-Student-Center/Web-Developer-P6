@@ -4,6 +4,7 @@ const userRoutes = require("./routes/user")
 const sauceRoutes = require("./routes/sauce")
 const cors = require("cors")
 const path = require("path")
+const rateLimit = require("express-rate-limit")
 
 // Connection à MongoDB via mongoose
 mongoose.connect("mongodb+srv://jssdestroyerman:Monmotdepasse@occursefullstacknodejse.qnnkqu4.mongodb.net/?retryWrites=true&w=majority")
@@ -14,12 +15,19 @@ mongoose.connect("mongodb+srv://jssdestroyerman:Monmotdepasse@occursefullstackno
 
 const app = express()
 const port = 3000
+const limiter = rateLimit({
+	windowMs: 15 * 60 * 1000, // 15 minutes
+	max: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes)
+	standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
+	legacyHeaders: false, // Disable the `X-RateLimit-*` headers
+})
 
 
 app
     // Cors middleware pour éviter les erreurs de connexion à l'API
     .use(cors())
     .use(express.json())
+    .use(limiter)
 
 
 // Routes API
