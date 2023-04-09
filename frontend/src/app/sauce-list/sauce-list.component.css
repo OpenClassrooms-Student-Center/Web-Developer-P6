@@ -1,0 +1,32 @@
+.sauce-list {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.sauce-list-item {
+  text-align: center;
+  width: 220px;
+  transition: all 0.1s ease-in-out;
+  cursor: pointer;
+}
+.sauce-list-item img {
+  max-width: 200px;
+  max-height: 250px;
+}
+.sauce-list-item h4 {
+  margin: 0;
+  font-weight: 500;
+}
+.sauce-list-item p {
+  margin: 0;
+}
+.sauce-list-item:hover {
+  transform: scale(1.05);
+  box-shadow: 1px 1px 20px rgba(120, 120, 120, 0.3);
+}
+
+.list-title {
+  text-align: center;
+  margin: 2em auto;
+}/*# sourceMappingURL=sauce-list.component.css.map */
