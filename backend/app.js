@@ -10,7 +10,7 @@ const app = express();
 
 app.use(express.json());
 
-// connects to mongoDB database for this project
+// connects to mongoDB database for this project 
 mongoose.connect('mongodb+srv://reesegbrown:Umbrella1!@cluster0.m9bylxq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
     .then(() => {
         console.log("connected to MongoDB Atlas");
